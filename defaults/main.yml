@@ -1,7 +1,7 @@
 ---
 
 gitpitch_release: 1.1
-gitpitch_repo: "git@git.ckmnet.co:webdev/ckmnet-gitpitch.git"
+gitpitch_repo: "https://github.com/gitpitch/gitpitch.git"
 
 gitpitch_target_dir: "{{ gitpitch_dir }}/target/universal/"
 gitpitch_target: "server-{{ gitpitch_release }}"
