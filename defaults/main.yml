@@ -7,6 +7,9 @@ git_key_file: "{{ key_path }}/id_rsa"
 gitpitch_target_dir: "{{ gitpitch_dir }}/target/universal/"
 gitpitch_target: "server-{{ gitpitch_release }}"
 
+# if you want to provide github api connectivity, provide your access token here
+# gh_access_token: "YOUR-GITHUB-ACCESS-TOKEN-HERE"
+
 gitpitch_asset_dir: "{{ gitpitch_dir }}/public/"
 
 gitpitch_repo_services:
