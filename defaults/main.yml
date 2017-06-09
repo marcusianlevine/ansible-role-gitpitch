@@ -8,3 +8,45 @@ gitpitch_target_dir: "{{ gitpitch_dir }}/target/universal/"
 gitpitch_target: "server-{{ gitpitch_release }}"
 
 gitpitch_asset_dir: "{{ gitpitch_dir }}/public/"
+
+gitpitch_repo_services:
+  - name: "GitHub"
+    type: "github"
+    site: "https://github.com/"
+    apibase: "https://api.github.com/"
+    apitokenheader: "Authorization"
+    rawbase: "htps://raw.githubusercontent.com/"
+    default: true
+    # access_token: "token YOUR-GITHUB-ACCESS-TOKEN-HERE"
+  - name: "GitLab"
+    type: gitlab
+    site: "https://gitlab.com/"
+    apibase: "https://gitlab.com/api/v3/"
+    apitokenheader: "PRIVATE-TOKEN"
+    rawbase: "https://gitlab.com/"
+    default: false
+    # access_token: "YOUR-GITLAB-ACCESS-TOKEN-HERE"
+  - name: "Bitbucket"
+    type: "bitbucket"
+    site: "https://bitbucket.org/"
+    apibase: "https://api.bitbucket.org/2.0/"
+    apitokenheader: "Authorization"
+    rawbase: "https://bitbucket.org/"
+    default: false
+    # access_token: "YOUR-BITBUCKET-ACCESS-TOKEN-HERE"
+  - name: "Gitea"
+    type: "gitea"
+    site: "https://gitea.io/"
+    apibase: "https://try.gitea.io/api/v1/"
+    apitokenheader: "Authorization"
+    rawbase: "htps://raw.githubusercontent.com/"
+    default: false
+    # access_token: "token YOUR-GITEA-ACCESS-TOKEN-HERE"
+  - name: "Gogs"
+    type: "gogs"
+    site: "https://gogs.io/"
+    apibase: "https://try.gogs.io/api/v1/"
+    apitokenheader: "Authorization"
+    rawbase: "https://try.gogs.io/"
+    default: false
+    # access_token: "token YOUR-GITHUB_ACCESS-TOKEN-HERE"

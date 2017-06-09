@@ -26,7 +26,7 @@
   
 - name: Copy in production config file
   template:
-    src: production.conf
+    src: production.conf.j2
     dest: "{{ gitpitch_dir }}/conf/production.conf"
   tags: conf
 

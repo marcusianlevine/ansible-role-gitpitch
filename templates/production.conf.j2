@@ -423,16 +423,20 @@ gitpitch {
   git {
     repo {
         services = [
+          {% for grs in gitpitch_repo_services %}
             {
-                name        = "GitLab"
-                type        = "gitlab"
-                site        = "https://{{ gitlab_hostname }}/"
-                apibase     = "https://{{ gitlab_hostname }}/api/v3/"
-                apitoken    = "{{ gitlab_access_token }}"
-                apitokenheader    = "PRIVATE-TOKEN"
-                rawbase     = "https://{{ gitlab_hostname }}/"
-                default     = "true"
+                name        = "{{ grs.name }}"
+                type        = "{{ grs.type }}"
+                site        = "{{ grs.site }}"
+                apibase     = "{{ grs.apibase }}"
+                {% if grs.access_token %}
+                apitoken    = "{{ grs.access_token }}"
+                {% endif %}
+                apitokenheader    = "{{ grs.apitokenheader }}"
+                rawbase     = "{{ grs.rawbase }}"
+                default     = "{{ grs.default }}"
             }
+          {% endfor %}
 
         ]
     }
