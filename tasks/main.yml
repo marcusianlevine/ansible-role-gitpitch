@@ -20,7 +20,7 @@
     repo: "{{ gitpitch_repo }}"
     dest: "{{ gitpitch_dir }}"
     accept_hostkey: yes
-    key_file: "{{ git_key_file|omit }}"
+    key_file: "{{ git_key_file|default(omit) }}"
     version: "{{ git_branch }}"
   tags: git
 
