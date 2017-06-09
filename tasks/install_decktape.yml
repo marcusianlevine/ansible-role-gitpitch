@@ -1,0 +1,26 @@
+---
+
+- name: create decktape directory
+  file:
+    path: "{{ decktape_dir }}/bin"
+    state: directory
+
+- name: copy down and unarchive source decktape tarball
+  unarchive:
+    src: https://github.com/astefanutti/decktape/archive/v1.0.0.tar.gz
+    dest: "{{ decktape_dir }}"
+    remote_src: True
+    mode: 0770
+
+- name: Get phantomjs executable
+  get_url:
+    url: https://github.com/astefanutti/decktape/releases/download/v1.0.0/phantomjs-linux-x86-64
+    dest: "{{ decktape_dir}}/phantomjs"
+    mode: 0770
+
+- name: Copy phantomjs executable to bin
+  copy:
+    dest: "{{ decktape_dir }}/bin/phantomjs"
+    src: "{{ decktape_dir }}/phantomjs"
+    remote_src: True
+    mode: 0770

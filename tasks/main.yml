@@ -1,0 +1,59 @@
+---
+
+- name: Install and configure decktape PDF printing dependency
+  include: install_decktape.yml
+
+- name: Add line to /etc/hosts file mapping local ip to specified domain
+  lineinfile: 
+    line: "{{ ansible_eth0.ipv4.address }} {{ domain }}"
+    dest: /etc/hosts
+    state: present
+
+- name: Make sure hosts file has entry for gitlab
+  lineinfile: 
+    line: "{{ gitlab_ip_address }} {{ gitlab_hostname }}"
+    dest: /etc/hosts
+    state: present
+
+- name: Create the Github SSH private key file
+  copy: src="./secrets/deploy_key"
+        dest="{{ key_path }}/id_rsa"
+        mode=0600
+        owner="{{ server_user }}"
+
+- name: Clone GitPitch repo
+  git:
+    repo: "{{ gitpitch_repo }}"
+    dest: "{{ gitpitch_dir }}"
+    accept_hostkey: yes
+    key_file: "{{ key_path }}/id_rsa"
+    version: "{{ git_branch }}"
+  tags: git
+
+- name: Run sbt on dist
+  shell: "sbt dist"
+  args:
+    chdir: "{{ gitpitch_dir }}"
+  tags: sbt
+  
+- name: Copy in production config file
+  template:
+    src: production.conf
+    dest: "{{ gitpitch_dir }}/conf/production.conf"
+  tags: conf
+
+- name: Create gitpitch ssl directory
+  file:
+    path: "{{ gitpitch_dir }}/ssl"
+    state: directory
+
+- name: Copy in CKM cert bundle
+  copy:
+    src: "secrets/{{ cert_bundle }}"
+    dest: "{{ gitpitch_dir }}/ssl/{{ cert_bundle }}"
+
+- name: Unzip target deployment
+  unarchive:
+    src: "{{ gitpitch_target_dir }}/{{ gitpitch_target }}.zip"
+    dest: "{{ gitpitch_target_dir }}"
+    remote_src: Trueh
