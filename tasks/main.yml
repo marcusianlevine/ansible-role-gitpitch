@@ -9,12 +9,6 @@
     dest: /etc/hosts
     state: present
 
-- name: Make sure hosts file has entry for gitlab
-  lineinfile: 
-    line: "{{ gitlab_ip_address }} {{ gitlab_hostname }}"
-    dest: /etc/hosts
-    state: present
-
 - name: Clone GitPitch repo
   git:
     repo: "{{ gitpitch_repo }}"
