@@ -15,18 +15,12 @@
     dest: /etc/hosts
     state: present
 
-- name: Create the Github SSH private key file
-  copy: src="./secrets/deploy_key"
-        dest="{{ key_path }}/id_rsa"
-        mode=0600
-        owner="{{ server_user }}"
-
 - name: Clone GitPitch repo
   git:
     repo: "{{ gitpitch_repo }}"
     dest: "{{ gitpitch_dir }}"
     accept_hostkey: yes
-    key_file: "{{ key_path }}/id_rsa"
+    key_file: "{{ git_key_file|omit }}"
     version: "{{ git_branch }}"
   tags: git
 
@@ -47,10 +41,11 @@
     path: "{{ gitpitch_dir }}/ssl"
     state: directory
 
-- name: Copy in CKM cert bundle
+- name: Copy in custom SSL cert bundle from secrets directory
   copy:
     src: "secrets/{{ cert_bundle }}"
     dest: "{{ gitpitch_dir }}/ssl/{{ cert_bundle }}"
+  when: "cert_bundle is defined and cert_bundle"
 
 - name: Unzip target deployment
   unarchive:
