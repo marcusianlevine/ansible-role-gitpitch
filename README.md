@@ -1,7 +1,7 @@
 marcusianlevine.gitpitch
 =========
 
-Installs and configures GitPitch on a standalone server. GitPitch is a presenation framework that take Markdown files from hosted Git repositories and prepares dynamic Reveal.js presentations.
+Installs and configures GitPitch on a standalone server. GitPitch is a presenation framework that reads Markdown files from hosted Git repositories and prepares dynamic Reveal.js presentations.
 
 Role Variables
 --------------
