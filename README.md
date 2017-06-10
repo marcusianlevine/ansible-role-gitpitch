@@ -41,6 +41,14 @@ Example Playbook
          - deiga.sbt
          - { role: marcusianlevine.gitpitch, play_secret_key: 42 }
 
+Limitations
+-----------
+
+Note that this role only installs and builds GitPitch, it does not:
+
+* configure a reverse proxy server or SSL termination as recommended in the official [Play production deployment guide](https://playframework.com/documentation/2.5.x/HTTPServer)
+* start the Play server as a background process using e.g. systemd, initd, or supervisord
+
 License
 -------
 
