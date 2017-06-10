@@ -365,7 +365,12 @@ gitpitch {
 
   hostname = "{{ domain }}"
 
+  {% if use_ssl %}
   https = true
+  {% else %}
+  https = false
+  {% end %}
+
 
   storage {
     #

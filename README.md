@@ -25,6 +25,8 @@ Since this value is sensitive, you shoud use [Ansible Vault](http://docs.ansible
   * If the version of gitpitch you would like to deploy is not hosted in a public repository, you can provide a key file which will be used to authenticate when cloning the repo
 * gitpitch_repo_services
   * If you wish to use custom [Git Repo Services](https://github.com/gitpitch/gitpitch/wiki/Git-Repo-Services), provide a list of dictionaries of the form found in `defaults/main.yml`
+* use_ssl
+  * if you plan to setup SSL termination in front of your GitPitch server, setting this to true will configure Play for HTTPS traffic
 
 Dependencies
 ------------
