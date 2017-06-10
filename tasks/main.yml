@@ -45,4 +45,4 @@
   unarchive:
     src: "{{ gitpitch_target_dir }}/{{ gitpitch_target }}.zip"
     dest: "{{ gitpitch_target_dir }}"
-    remote_src: Trueh
+    remote_src: True
