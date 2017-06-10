@@ -421,7 +421,7 @@ gitpitch {
 
   github {
     api {
-      {% if gh_access_token %}
+      {% if gh_access_token is defined and gh_access_token %}
       token = "{{ gh_access_token }}"
       {% endif %}
     }
