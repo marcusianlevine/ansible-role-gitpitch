@@ -365,7 +365,7 @@ gitpitch {
 
   hostname = "{{ domain }}"
 
-  {% if use_ssl %}
+  {% if use_ssl is defined and use_ssl %}
   https = true
   {% else %}
   https = false
