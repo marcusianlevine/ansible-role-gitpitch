@@ -4,7 +4,7 @@ gitpitch_release: 1.1
 gitpitch_repo: "https://github.com/gitpitch/gitpitch.git"
 git_key_file: "{{ key_path }}/id_rsa"
 
-gitpitch_target_dir: "{{ gitpitch_dir }}/target/universal/"
+gitpitch_target_dir: "{{ gitpitch_dir }}/target/universal"
 gitpitch_target: "server-{{ gitpitch_release }}"
 
 # if you want to provide github api connectivity, provide your access token here
