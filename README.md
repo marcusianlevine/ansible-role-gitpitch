@@ -28,6 +28,10 @@ Since this value is sensitive, you shoud use [Ansible Vault](http://docs.ansible
 * use_ssl
   * if you plan to setup SSL termination in front of your GitPitch server, setting this to true will configure Play for HTTPS traffic
 
+If you are using an unreleased custom version of GitPitch, you can provide a repo URL and/or branch specification with the following pair of variables:
+* gitpitch_repo
+* gitpitch_branch
+
 Dependencies
 ------------
 

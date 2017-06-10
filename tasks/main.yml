@@ -15,7 +15,7 @@
     dest: "{{ gitpitch_dir }}"
     accept_hostkey: yes
     key_file: "{{ git_key_file|default(omit) }}"
-    version: "{{ git_branch }}"
+    version: "{{ gitpitch_branch|default('v'~gitpitch_release~'.0') }}"
   tags: git
 
 - name: Run sbt on dist
