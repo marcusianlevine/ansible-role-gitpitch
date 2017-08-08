@@ -38,10 +38,16 @@ If you are using an unreleased custom version of GitPitch, you can provide a rep
 * gitpitch_repo
 * gitpitch_branch
 
+Prerequisites
+------------
+
+This role does not install Java, so you need to make sure it is already installed on the hosts to be configured.
+
+If your target OS is supported, you can easily add [the Galaxy role `jpnewman.java`](https://galaxy.ansible.com/jpnewman/java/) to your playbook.
+
 Dependencies
 ------------
 
-* jpnewman.java
 * deiga.sbt
 
 Example Playbook
