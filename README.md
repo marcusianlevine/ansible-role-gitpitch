@@ -48,7 +48,7 @@ If your target OS is supported, you can easily add [the Galaxy role `jpnewman.ja
 Dependencies
 ------------
 
-* deiga.sbt
+* marcusianlevine.sbt
 
 Example Playbook
 ----------------
