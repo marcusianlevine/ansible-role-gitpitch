@@ -27,6 +27,12 @@ Since this value is sensitive, you shoud use [Ansible Vault](http://docs.ansible
   * If you wish to use custom [Git Repo Services](https://github.com/gitpitch/gitpitch/wiki/Git-Repo-Services), provide a list of dictionaries of the form found in `defaults/main.yml`
 * use_ssl
   * if you plan to setup SSL termination in front of your GitPitch server, setting this to true will configure Play for HTTPS traffic
+* gitpitch_host
+  * if you want to specify the host address at which the GitPitch server should listen
+  * Default: 127.0.0.1 (localhost)
+* gitpitch_port
+  * if you want to specify the port that the GitPitch server should listen on
+  * Default: 9000
 
 If you are using an unreleased custom version of GitPitch, you can provide a repo URL and/or branch specification with the following pair of variables:
 * gitpitch_repo

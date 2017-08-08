@@ -10,6 +10,9 @@ gitpitch_target: "server-{{ gitpitch_release }}"
 # if you want to provide github api connectivity, provide your access token here
 # gh_access_token: "YOUR-GITHUB-ACCESS-TOKEN-HERE"
 
+gitpitch_port: 9000
+gitpitch_host: "127.0.0.1"
+
 gitpitch_asset_dir: "{{ gitpitch_dir }}/public/"
 
 gitpitch_repo_services:

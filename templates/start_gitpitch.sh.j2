@@ -1,0 +1,3 @@
+#!/bin/bash
+
+{{ gitpitch_target_dir }}/{{ gitpitch_target }}/bin/server -Dconfig.file={{ gitpitch_dir }}/conf/production.conf -Dhttp.address={{ gitpitch_host }} -Dhttp.port={{ gitpitch_port }}

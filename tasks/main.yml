@@ -30,6 +30,12 @@
     dest: "{{ gitpitch_dir }}/conf/production.conf"
   tags: conf
 
+- name: Copy in production startup script
+  template:
+    src: start_gitpitch.sh.j2
+    dest: "/usr/local/bin/start_gitpitch"
+    mode: 0755
+
 - name: Create gitpitch ssl directory
   file:
     path: "{{ gitpitch_dir }}/ssl"
