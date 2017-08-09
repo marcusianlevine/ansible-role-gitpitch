@@ -2,6 +2,7 @@
 
 gitpitch_release: 1.1
 gitpitch_repo: "https://github.com/gitpitch/gitpitch.git"
+key_path: "{{ ansible_env.HOME }}/.ssh"
 git_key_file: "{{ key_path }}/id_rsa"
 
 gitpitch_target_dir: "{{ gitpitch_dir }}/target/universal"
