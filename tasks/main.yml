@@ -12,12 +12,19 @@
   with_items: "{{ vars_files }}"
   when: ansible_env.ANSIBLE_CONTAINER is defined and vars_files is defined and vars_files
 
+- name: Create the git repo SSH private key directory
+  file:
+    path: "{{ ansible_env.HOME}}/.ssh"
+    state: directory
+  tags: git
+
 - name: Create the Github SSH private key file
   copy: src="{{ gitpitch_repo_key_src }}"
-    dest="{{ git_key_file }}"
+    dest="{{ ansible_env.HOME}}/.ssh/id_rsa"
     mode=0600
     owner="{{ ansible_user_id }}"
   when: gitpitch_repo_key_src is defined
+  tags: git
 
 - name: Install and configure decktape PDF printing dependency
   include: install_decktape.yml
