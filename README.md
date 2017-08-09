@@ -38,6 +38,10 @@ If you are using an unreleased custom version of GitPitch, you can provide a rep
 * gitpitch_repo
 * gitpitch_branch
 
+### Ansible Container only
+* vars_files
+  * Provide a list of variable files relative to your project root (including vaulted files)
+
 Prerequisites
 ------------
 
