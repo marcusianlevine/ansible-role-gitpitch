@@ -12,6 +12,7 @@
     line: "{{ ansible_eth0.ipv4.address }} {{ domain }}"
     dest: /etc/hosts
     state: present
+  when: "{{ ansible_env.ANSIBLE_CONTAINER is not defined }}"
 
 - name: Clone GitPitch repo
   git:
