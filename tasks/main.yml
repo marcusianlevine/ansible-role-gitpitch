@@ -8,7 +8,7 @@
   copy: src="{{ gitpitch_repo_key_src }}"
     dest="{{ git_key_file }}"
     mode=0600
-    owner="{{ ansible_ssh_user }}"
+    owner="{{ ansible_user }}"
   when: gitpitch_repo_key_src is defined
 
 - name: Install and configure decktape PDF printing dependency
