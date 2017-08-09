@@ -37,6 +37,8 @@ Since this value is sensitive, you shoud use [Ansible Vault](http://docs.ansible
 If you are using an unreleased custom version of GitPitch, you can provide a repo URL and/or branch specification with the following pair of variables:
 * gitpitch_repo
 * gitpitch_branch
+* gitpitch_repo_key_src:
+  * If your GitPitch repo is private, provide a key file (encrypted with Vault!) that will replace `~/id_rsa`
 
 ### Ansible Container only
 * vars_files
