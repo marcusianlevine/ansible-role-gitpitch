@@ -436,7 +436,7 @@ gitpitch {
                 type        = "{{ grs.type }}"
                 site        = "{{ grs.site }}"
                 apibase     = "{{ grs.apibase }}"
-                {% if grs.access_token %}
+                {% if grs.access_token is defined %}
                 apitoken    = "{{ grs.access_token }}"
                 {% endif %}
                 apitokenheader    = "{{ grs.apitokenheader }}"
