@@ -196,7 +196,7 @@ play.ws {
     #debug.handshake = true
     trustManager = {
         stores = [
-          {% if cert_bundle %}
+          {% if cert_bundle is defined %}
           { type = "PEM", path = "{{ gitpitch_dir }}/ssl/{{ cert_bundle }}" }
           {% endif %}
           { path: ${java.home}/lib/security/cacerts } # Default trust store
